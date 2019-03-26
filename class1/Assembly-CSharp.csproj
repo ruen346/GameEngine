@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\character.cs" />
+    <Compile Include="Assets\character2.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/구건모/Desktop/개발/GameEngine/class1/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
