@@ -78,9 +78,6 @@ namespace Complete
                 // ... launch the shell.
                 Fire ();
             }
-
-            if(m_PlayerNumber == 0) // 삭제해라 애송아
-                Fire();
         }
 
 
