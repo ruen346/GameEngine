@@ -58,8 +58,20 @@ namespace Complete
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)//충돌시
+        {
+            if (collision.tag == "crash")
+            {
+                float turn = m_TurnSpeed * Time.deltaTime;
 
-        private void Start ()
+                Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+
+                m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
+            }
+        }
+
+
+            private void Start ()
         {
             // The axes names are based on player number.
             m_MovementAxisName = "Vertical" + m_PlayerNumber;
@@ -116,7 +128,7 @@ namespace Complete
         }
 
 
-        private void Move ()
+        private void Move()
         {
             // Create a vector in the direction the tank is facing with a magnitude based on the input, speed and the time between frames.
             Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
@@ -126,16 +138,16 @@ namespace Complete
         }
 
 
-        private void Turn ()
+        private void Turn()
         {
             // Determine the number of degrees to be turned based on the input, speed and time between frames.
             float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime;
 
             // Make this into a rotation in the y axis.
-            Quaternion turnRotation = Quaternion.Euler (0f, turn, 0f);
+            Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
             // Apply this rotation to the rigidbody's rotation.
-            m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
+            m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
         }
     }
 }

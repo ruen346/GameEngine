@@ -30,7 +30,6 @@ namespace Complete
             m_EndWait = new WaitForSeconds (m_EndDelay);
 
             SpawnAllTanks();
-            SetCameraTargets();
 
             // Once the tanks have been created and the camera is using them as targets, start the game.
             StartCoroutine (GameLoop ());
@@ -48,23 +47,6 @@ namespace Complete
                 m_Tanks[i].m_PlayerNumber = i + 1;
                 m_Tanks[i].Setup();
             }
-        }
-
-
-        private void SetCameraTargets()
-        {
-            // Create a collection of transforms the same size as the number of tanks.
-            Transform[] targets = new Transform[m_Tanks.Length];
-
-            // For each of these transforms...
-            for (int i = 0; i < targets.Length; i++)
-            {
-                // ... set it to the appropriate tank transform.
-                targets[i] = m_Tanks[i].m_Instance.transform;
-            }
-
-            // These are the targets the camera should follow.
-            m_CameraControl.m_Targets = targets;
         }
 
 
@@ -100,9 +82,6 @@ namespace Complete
             // As soon as the round starts reset the tanks and make sure they can't move.
             ResetAllTanks ();
             DisableTankControl ();
-
-            // Snap the camera's zoom and position to something appropriate for the reset tanks.
-            m_CameraControl.SetStartPositionAndSize ();
 
             // Increment the round number and display text showing the players what round it is.
             m_RoundNumber++;
