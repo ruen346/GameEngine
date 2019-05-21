@@ -65,6 +65,7 @@
     <Compile Include="Assets\_Completed-Assets\Scripts\Shell\ShellExplosion.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\UI\UIDirectionControl.cs" />
     <Compile Include="Assets\Making\CameraControl.cs" />
+    <Compile Include="Assets\Making\Enemy.cs" />
     <Compile Include="Assets\Making\Move_enemy.cs" />
     <Compile Include="Assets\Making\Shoot_enemy.cs" />
     <Compile Include="Assets\Making\TankHealth.cs" />
